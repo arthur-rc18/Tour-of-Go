@@ -26,7 +26,7 @@ func main() {
 	y[0] = "XXX"       // Since y have only two values, "Paul" is in the 0 position and "George" in the 1, so only "Paul" is going to change
 	fmt.Println(names) // When the array names is printed will show [John XXX George Ringo]
 
-	s := []struct { // Example of
+	s := []struct { // Example of a literal slice
 		i int
 		b bool
 	}{
@@ -37,8 +37,28 @@ func main() {
 	s1 := []int{2, 3, 6, 9, 6, 20, 21}
 	s1 = s1[:5] // When there is no value in the left side, the position of the right side will "cute" the array and take all values at the right
 
+	s2 := []int{69, 5, 23, 9, 3, 9, 4}
+	size(s2) // Calling the size function down at the code
+
+	//Slice the slice to give it zero length
+	s2 = s2[:0]
+	size(s2)
+
+	// Extend its length
+	s2 = s2[:4]
+	size(s2)
+
+	// Drop its first two values
+	s2 = s2[2:]
+	size(s2)
+
 }
 
 func sum(x, y int) int {
 	return x + y
+}
+
+func size(s []int) {
+	fmt.Printf("The size of the array is %d, the capacity is %d and the slice is %v\n", len(s), cap(s), s) // This function will return the lenght, the capacity
+	// of an array and the array or the slice of it
 }
