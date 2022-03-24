@@ -2,22 +2,15 @@ package main
 
 import "fmt"
 
-type Test struct {
-	X int //Inside of the struct you define the fields
-	Y float32
-	Z string
-}
+var p *int //When used to reference itself, the value will be 'nil'
 
-func ex() {
-	fmt.Println(Test{10, 5.5, "Hello"}) //This will set the values of the fields in the struct
-}
+func point() {
+	i := 42         //i has the value of 42
+	var x = &i      //The & operator generates a pointer to its operand
+	fmt.Println(*x) //Read i through the pointer x
+	fmt.Println(x)  //When printed alone, will show the memory address of i
 
-func instance() {
+	*p = 21 //Set i through the pointer p
+	//This is known as "dereferecing" or "indirecting"
 
-	v := Test{} //That's an easier way to set the fields using dot
-	v.X = 15
-	v.Y = 57.43
-	v.Z = "Teting"
-
-	fmt.Println(v.X, v.Y, v.Z)
 }
