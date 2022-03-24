@@ -28,7 +28,3 @@ var (
 	v3 = Struct{}                  // X:0, Y:0 and Z:""
 	v4 = &Struct{10, 5, "Hi"}      // Has type *Struct
 )
-
-func main() {
-	fmt.Println(v1, v4, v2, v3)
-}
