@@ -26,13 +26,16 @@ func main() {
 	y[0] = "XXX"       // Since y have only two values, "Paul" is in the 0 position and "George" in the 1, so only "Paul" is going to change
 	fmt.Println(names) // When the array names is printed will show [John XXX George Ringo]
 
-	s := []struct { // Example of a literal slice
+	s := []struct { // Example of
 		i int
 		b bool
 	}{
 		{2, true}, {3, false}, {5, true}, {7, true},
 	}
 	fmt.Println(s)
+
+	s1 := []int{2, 3, 6, 9, 6, 20, 21}
+	s1 = s1[:5] // When there is no value in the left side, the position of the right side will "cute" the array and take all values at the right
 
 }
 

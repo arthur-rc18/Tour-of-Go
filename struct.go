@@ -12,12 +12,12 @@ func execute() {
 	fmt.Println(Struct{10, 5.5, "Hello"}) //This will set the values of the fields in the struct
 }
 
-func setting() {
+func main() {
 
 	v := Struct{} //That's an easier way to set the fields using dot
 	v.X = 15
 	v.Y = 57.43
-	v.Z = "Teting"
+	v.Z = "Testing"
 
 	fmt.Println(v.X, v.Y, v.Z)
 }
