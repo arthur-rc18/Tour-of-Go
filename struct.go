@@ -21,3 +21,14 @@ func setting() {
 
 	fmt.Println(v.X, v.Y, v.Z)
 }
+
+var (
+	v1 = Struct{1, 5.5, "Testing"} // has type Struct
+	v2 = Struct{X: 5}              // Y:0 and Z:"" is implicit
+	v3 = Struct{}                  // X:0, Y:0 and Z:""
+	v4 = &Struct{10, 5, "Hi"}      // Has type *Struct
+)
+
+func main() {
+	fmt.Println(v1, v4, v2, v3)
+}
