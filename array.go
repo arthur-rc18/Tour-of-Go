@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -58,6 +60,10 @@ func main() {
 
 	ar2 := make([]int, 0, 10) // Sometimes the function can have 3 arguments, the third argument it's the capacity
 	size(ar2)
+
+	var ar3 []int
+	ar3 = append(ar, 1, 2, 3) // The append functions appends elementes to the end of a slice
+	size(ar3)                 // In this case, ar3 was built with no values, and in the append it's passing 3 values, so when printed, will show [1,2,3]
 
 }
 
