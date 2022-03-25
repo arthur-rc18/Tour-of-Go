@@ -52,6 +52,13 @@ func main() {
 	s2 = s2[2:]
 	size(s2)
 
+	// The 'make' function allocates and initializes an object of type slice, map or chan
+	ar := make([]int, 5) // Here you specify the type of the array and then its lenght
+	size(ar)
+
+	ar2 := make([]int, 0, 10) // Sometimes the function can have 3 arguments, the third argument it's the capacity
+	size(ar2)
+
 }
 
 func sum(x, y int) int {
