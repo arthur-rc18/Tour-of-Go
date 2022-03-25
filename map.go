@@ -48,4 +48,10 @@ func main() {
 	}
 	fmt.Println(v2)
 
+	// To test if a key is present with a two-value assignment
+	// If the element is in the map v2, "ok" is true. If not, "ok" is false
+	// If the element is not in the map, then "elm" is the zero value for the map's element type
+	ok := v2["Google"]
+	fmt.Println("The value:  Present?", ok)
+
 }

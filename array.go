@@ -70,6 +70,12 @@ func main() {
 		// is a copy of the element at that index.
 		fmt.Printf("2**%d = %d\n", i, j)
 	}
+	for _, j := range ar4 { // With this '_' you can skip the index or value, in that case only the index will be skipped
+		fmt.Printf("%d\n", j)
+	}
+	for i, _ := range ar4 { // Here only the index will be showed
+		fmt.Printf("%d\n", i)
+	}
 
 }
 
