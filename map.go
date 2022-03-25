@@ -25,4 +25,20 @@ func main() {
 	delete(mp, "apple")
 
 	fmt.Println(mp)
+
+	// map with a struct
+	// Creating the struct
+	type Vertex struct {
+		lat, long float64
+		s         string
+	}
+
+	// Mapping the struct with a string parameter
+	v := make(map[string]Vertex) // In that case, the value to be mapped will be the struct itself
+
+	// Setting the fields
+	v["Bell Labs"] = Vertex{
+		40.68433, -74.39967, "test",
+	}
+	fmt.Println(v)
 }
