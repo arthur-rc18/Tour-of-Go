@@ -41,4 +41,11 @@ func main() {
 		40.68433, -74.39967, "test",
 	}
 	fmt.Println(v)
+
+	// Map literals continued
+	var v2 = map[string]Vertex{
+		"Google": {27.42202, -74.39967, "Company"},
+	}
+	fmt.Println(v2)
+
 }
