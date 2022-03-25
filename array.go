@@ -65,6 +65,12 @@ func main() {
 	ar3 = append(ar, 1, 2, 3) // The append functions appends elementes to the end of a slice
 	size(ar3)                 // In this case, ar3 was built with no values, and in the append it's passing 3 values, so when printed, will show [1,2,3]
 
+	var ar4 = []int{1, 2, 4, 8, 16, 32, 64, 128}
+	for i, j := range ar4 { // The range form of the for loop iterates over a slice or map. The first parameter(i) is the index and the second(j)
+		// is a copy of the element at that index.
+		fmt.Printf("2**%d = %d\n", i, j)
+	}
+
 }
 
 func sum(x, y int) int {
