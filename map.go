@@ -58,6 +58,9 @@ func main() {
 	fmt.Println("The value:", elm, "Present?", ok)
 
 	_, tr := v2["Amazon"]
-	fmt.Println("Is present", tr)
+	fmt.Println("Is present?", tr)
+
+	lf, _ := v2["Tesla"]
+	fmt.Println("Is present?", lf)
 
 }
