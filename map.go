@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func main() {
@@ -48,15 +47,17 @@ func main() {
 	// Map literals continued
 	var v2 = map[string]Vertex{
 		"Google": {27.42202, -74.39967, "Company"},
+		"Amazon": {32.4132, -53.42412, "Company"},
 	}
 	fmt.Println(v2)
 
 	// To test if a key is present with a two-value assignment
 	// If the element is in the map v2, "ok" is true. If not, "ok" is false
 	// If the element is not in the map, then "elm" is the zero value for the map's element type
-	_, ok := v2["Google"]
-	fmt.Println("The value:  Present?", ok)
+	elm, ok := v2["Google"]
+	fmt.Println("The value:", elm, "Present?", ok)
 
-	strings.Fields("")
+	_, tr := v2["Amazon"]
+	fmt.Println("Is present", tr)
 
 }
