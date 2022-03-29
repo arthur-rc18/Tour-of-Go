@@ -13,19 +13,6 @@ func (v Vert) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
-func main() {
-	v := Vert{3, 4}
-
-	fmt.Println(v.Abs())
-
-	f := Myfloat(-math.Sqrt2)
-	fmt.Println(f.Abs2())
-
-	f2 := Str{3, 4} //Making the instance of the struct
-	f2.Scale(10)    // This function will be executed first when called
-	fmt.Println(f2.Abs2())
-}
-
 // You can declare a method on non-struct types, too.
 type Myfloat float64
 
@@ -51,4 +38,34 @@ func (s Str) Abs2() float64 {
 func (s *Str) Scale(f float64) {
 	s.X = s.X * f
 	s.Y = s.Y * f
+}
+
+func ScaleFunc(v *Str, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
+func main() {
+	v := Vert{3, 4}
+
+	fmt.Println(v.Abs())
+
+	f := Myfloat(-math.Sqrt2)
+	fmt.Println(f.Abs2())
+
+	f2 := Str{3, 4} //Making the instance of the struct
+	f2.Scale(10)    // This function will be executed first when called
+	fmt.Println(f2.Abs2())
+
+	// Pointing in a function
+	v2 := Str{3, 4}
+	v2.Scale(2)
+	ScaleFunc(&v2, 10)
+
+	// Pointing in a method
+	p1 := &Str{4, 3}
+	p1.Scale(3)
+	ScaleFunc(p1, 5)
+
+	fmt.Println(v2, p1)
 }
