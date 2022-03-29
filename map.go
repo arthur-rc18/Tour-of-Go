@@ -24,7 +24,7 @@ func main() {
 	mp["pear"] = 900
 
 	// To delete a value
-	delete(mp, "apple")
+	delete(mp, "orange")
 
 	fmt.Println(mp)
 
