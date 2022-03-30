@@ -81,7 +81,17 @@ func main() {
 	var v2 *V
 	i = v2
 	describe2(i)
-	i.M()
+	i.M() // Both functions will print <nil>, because there is no concrete value in the interface i.
+
+	// Is it possible to create a empty interface
+	var y interface{}
+	describe3(y) // An empty interface may hold values of any type.
+
+	y = 42 // Setting an int value
+	describe3(y)
+
+	y = "Testing" // Setting a string
+	describe3(y)
 }
 
 // Passing a interface as a value
@@ -91,5 +101,9 @@ func describe(i it) {
 }
 
 func describe2(i itc) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
+func describe3(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
