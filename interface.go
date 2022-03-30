@@ -17,6 +17,22 @@ type ver2 struct {
 	X, Y float64
 }
 
+type V struct {
+	S string
+}
+
+func (v *V) M() {
+	if v == nil {
+		fmt.Println("<nil>")
+		return
+	}
+	fmt.Println(v.S)
+}
+
+type itc interface {
+	M()
+}
+
 // Creating the functions with the same name but different parameters
 func (v *ver) tg() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
@@ -56,15 +72,24 @@ func main() {
 	a2 = t
 
 	a2 = &ver2{3, 4}
+	// Calling the function with the interface already settted
 	describe(a2)
 	a2.tg()
 
-	// Calling the function with the interface already settted
-
+	// If the concrete  value inside the interface itself is nil, the method will be called with a nil receiver.
+	var i itc
+	var v2 *V
+	i = v2
+	describe2(i)
+	i.M()
 }
 
 // Passing a interface as a value
 // This function will only print the value and the Go-syntax representation of the type of the value that is setted in the interface.
 func describe(i it) {
-	fmt.Printf("(%v, %T)", i, i)
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
+func describe2(i itc) {
+	fmt.Printf("(%v, %T)\n", i, i)
 }
