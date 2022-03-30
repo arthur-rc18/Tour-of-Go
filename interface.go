@@ -44,4 +44,12 @@ func main() {
 
 	fmt.Println(a.tg())
 	fmt.Println(a2.tg())
+
+	// Calling the function with the interface already settted
+	describe(a2)
+}
+
+// Passing a interface as a value
+func describe(i it) {
+	fmt.Printf("(%v, %T)", i, i)
 }
