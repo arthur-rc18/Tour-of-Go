@@ -34,6 +34,8 @@ type it interface {
 
 func main() {
 	var a it // Here it's creating the instance of the interface
+	// Interface can be implemented in a implicity way
+	var a2 it = &ver{4, 3}
 	f := Myfl(math.Sqrt2)
 	v := ver{3, 4} // Setting the types already created
 
@@ -41,4 +43,5 @@ func main() {
 	a = &v
 
 	fmt.Println(a.tg())
+	fmt.Println(a2.tg())
 }
