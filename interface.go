@@ -13,8 +13,16 @@ type ver struct {
 	X, Y float64
 }
 
+type ver2 struct {
+	X, Y float64
+}
+
 // Creating the functions with the same name but different parameters
 func (v *ver) tg() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func (v *ver2) tg() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
@@ -35,21 +43,28 @@ type it interface {
 func main() {
 	var a it // Here it's creating the instance of the interface
 	// Interface can be implemented in a implicity way
-	var a2 it = &ver{4, 3}
+
 	f := Myfl(math.Sqrt2)
 	v := ver{3, 4} // Setting the types already created
 
 	a = f
 	a = &v
-
 	fmt.Println(a.tg())
-	fmt.Println(a2.tg())
+
+	var t *ver2
+	var a2 it
+	a2 = t
+
+	a2 = &ver2{3, 4}
+	describe(a2)
+	a2.tg()
 
 	// Calling the function with the interface already settted
-	describe(a2)
+
 }
 
 // Passing a interface as a value
+// This function will only print the value and the Go-syntax representation of the type of the value that is setted in the interface.
 func describe(i it) {
 	fmt.Printf("(%v, %T)", i, i)
 }
