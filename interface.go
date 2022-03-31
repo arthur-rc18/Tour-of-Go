@@ -116,6 +116,7 @@ func main() {
 	do(15)
 	do("Type string")
 	do(true)
+
 }
 
 // Passing a interface as a value
