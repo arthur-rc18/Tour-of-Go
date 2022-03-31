@@ -92,6 +92,12 @@ func main() {
 
 	y = "Testing" // Setting a string
 	describe3(y)
+
+	// Type assertions in interfaces
+	// A type assertion provides access to an interface value's underlying concrete value
+
+	var tAssert interface{} = "Hello" // Setting a string in the interface variable
+
 }
 
 // Passing a interface as a value
