@@ -109,6 +109,11 @@ func main() {
 
 	ve2, ok := tAssert.(float64) // If the interface does not hold the type, then 've2' will be the zero value of the type and ok will be false.
 	fmt.Println(ve2, ok)         // In that case will return '0' and 'false', since the interface doesn't hold a float64 value
+
+	// Passing the values in the do function
+	do(15)
+	do("Type string")
+	do(true)
 }
 
 // Passing a interface as a value
@@ -123,4 +128,18 @@ func describe2(i itc) {
 
 func describe3(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
+}
+
+// Type switches with interface
+func do(i interface{}) {
+	switch v := i.(type) { // The type of the interface isn't specified, so in that case it's just 'type'
+	case int: // If i it's an int, then v will assume a int a int value
+		fmt.Printf("Twice of %v is %v\n", v, v*2)
+
+	case string: // If i it's a string then v will assume that value
+		fmt.Printf("%q is %v byteslong\n", v, len(v))
+
+	default:
+		fmt.Printf("I don't know about the type %T!\n", v)
+	}
 }
