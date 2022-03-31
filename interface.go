@@ -97,7 +97,18 @@ func main() {
 	// A type assertion provides access to an interface value's underlying concrete value
 
 	var tAssert interface{} = "Hello" // Setting a string in the interface variable
+	tai := tAssert.(string)           // Passing the interface's string as a value to tai
+	fmt.Println(tai)
 
+	// To test whether an interface value holds a specific type, a type assertation can return two values, the underlying value
+	// and a boolean value that reports whether the assertion succeed
+
+	// It's very simillar to verify the values in a map
+	ve, ok := tAssert.(string) // If the interface tAssert holds a string, then 've' will be the value of the type and 'ok' will be true.
+	fmt.Println(ve, ok)
+
+	ve2, ok := tAssert.(float64) // If the interface does not hold the type, then 've2' will be the zero value of the type and ok will be false.
+	fmt.Println(ve2, ok)         // In that case will return '0' and 'false', since the interface doesn't hold a float64 value
 }
 
 // Passing a interface as a value
