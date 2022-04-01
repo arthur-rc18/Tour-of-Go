@@ -6,7 +6,7 @@ import (
 )
 
 type MyError struct {
-	When time.Time
+	When time.Time // A simple struct
 	What string
 }
 
@@ -18,8 +18,14 @@ func (m *MyError) Error() string {
 }
 
 func run() error {
-	return &MyError{ //
+	return &MyError{ // By using a pointer, the fields of the struct will be used here
 		time.Now(), // Setting the values in the struct
 		"it didn't work",
+	}
+}
+
+func main() {
+	if err := run(); err != nil { // A nil error denotes success; while a non-nil error denotes failure
+		fmt.Println(err)
 	}
 }
