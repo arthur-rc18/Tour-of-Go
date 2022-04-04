@@ -16,6 +16,13 @@ func Index[T comparable](s []T, x T) int { // 'comparable' is a useful constrain
 	return -1
 }
 
+// List represents a singly-linked list that holds
+// values of any type.
+type List[T any] struct { // any is an alias for interface{} and is equivalent to interface{} in all ways.
+	next *List[T]
+	val  T
+}
+
 func main() {
 
 	ss := []int{10, 19, 15, 200, 2001}
@@ -23,4 +30,8 @@ func main() {
 
 	si := []string{"test", "hello", "array", "generics"}
 	fmt.Println(Index(si, "hello"))
+
+	var x List[int]
+	v := List[int]{next: &x, val: 105}
+	fmt.Println(v)
 }
