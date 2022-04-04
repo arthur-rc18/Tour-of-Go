@@ -32,6 +32,7 @@ func main() {
 	fmt.Println(Index(si, "hello"))
 
 	var x List[int]
+	// That's the correct way to make the connection with a generic struct
 	v := List[int]{next: &x, val: 105}
 	fmt.Println(v)
 }
