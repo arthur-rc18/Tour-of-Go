@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"math"
-
-	"fmt.Stringer"
 )
 
 // Initializing the type

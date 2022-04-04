@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io" // The io package specifies the io.Reader interface, which represents the read of a stream of data.
 	"strings"
+
+	"golang.org/x/tour/reader"
 )
 
 func main() {
@@ -22,5 +24,6 @@ func main() {
 		if err == io.EOF {
 			break
 		}
+		reader.Validate(v)
 	}
 }
