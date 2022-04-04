@@ -10,7 +10,6 @@ func main() {
 	v := (Teg())
 	fmt.Println(v)
 	fmt.Println(len(v))
-	//x := map(v)int
 }
 
 func Teg() []string {
