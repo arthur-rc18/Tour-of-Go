@@ -52,6 +52,18 @@ func main() {
 		fmt.Println(i)
 	}
 
+	// Instancing a function inside the main, to show how select works
+	// This part of the code will return a panic, this will be solved and talked in other code
+	c3 := make(chan int)
+	quit := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+	fib2(c3, quit)
+
 }
 
 // Demonstration of how the 'close' function works
@@ -66,9 +78,20 @@ func fib(n int, c chan int) { // This function returns the n's number of Fibonac
 	close(c)
 }
 
+// Select in channels
+// Selects acts like a switch case. The select statement lets a goroutine wait on multiple communication operations.
+// A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
 func fib2(c, quit chan int) {
 	x, y := 0, 1
 	for {
+		time.Sleep(2 * time.Second)
+		select {
+		case c <- x:
+			x, y = y, x+y
 
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
 	}
 }
