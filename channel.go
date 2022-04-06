@@ -44,4 +44,31 @@ func main() {
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)
+
+	c2 := make(chan int, 10)
+	// Calling the fib function created previously
+	go fib(cap(c2), c2)
+	for i := range c2 { // The loop ' for i := range c2" receives values from the channel repeatedly until is closed
+		fmt.Println(i)
+	}
+
+}
+
+// Demonstration of how the 'close' function works
+
+func fib(n int, c chan int) { // This function returns the n's number of Fibonacci
+	x, y := 0, 1
+
+	for i := 0; i < n; i++ {
+		c <- x
+		x, y = y, x+y
+	}
+	close(c)
+}
+
+func fib2(c, quit chan int) {
+	x, y := 0, 1
+	for {
+
+	}
 }
