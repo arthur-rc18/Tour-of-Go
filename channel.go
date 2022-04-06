@@ -54,15 +54,33 @@ func main() {
 
 	// Instancing a function inside the main, to show how select works
 	// This part of the code will return a panic, this will be solved and talked in other code
-	c3 := make(chan int)
-	quit := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println(<-c)
+	// c3 := make(chan int)
+	// quit := make(chan int)
+	// go func() {
+	// 	for i := 0; i < 10; i++ {	// CAUTION: This code will throw a panic, that's why it's commented
+	// 		fmt.Println(<-c)
+	// 	}
+	// 	quit <- 0
+	// }()
+	// fib2(c3, quit)
+
+	// Demonstration of the default selection
+	tick := time.Tick(100 * time.Millisecond)
+	boom := time.After(300 * time.Millisecond)
+	for {
+		select {
+		case <-tick:
+			fmt.Println("tick.") // This will be executed first
+
+		case <-boom:
+			fmt.Println("BOOM.") // And then this part will be executed after three executions of the 'tick'
+			return
+
+		default: // The default in a select is run if no other case is ready
+			fmt.Println("	.")
+			time.Sleep(50 * time.Millisecond)
 		}
-		quit <- 0
-	}()
-	fib2(c3, quit)
+	}
 
 }
 
