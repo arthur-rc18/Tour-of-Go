@@ -35,7 +35,7 @@ func main() {
 	c := SafeCounter{v: make(map[string]int)}
 
 	for i := 0; i < 1000; i++ {
-		go c.Inc("Somekey")
+		go c.Inc("somekey")
 	}
 
 	time.Sleep(time.Second)
