@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sync" // This is library respomsible for this
+	"sync" // This is the library responsible for this
 	"time"
 )
 
